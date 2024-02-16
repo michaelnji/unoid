@@ -1,0 +1,55 @@
+{
+  "name": "unoid",
+  "description": "A wrapper for emojihub api",
+  "version": "0.0.1",
+  "author": "COD3VIL",
+  "homepage": "https://mykenji.vercel.app/projects/unoid",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelnji/unoid.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/index.d.ts",
+  "main": "./dist/unoid.umd.js",
+  "module": "./dist/unoid.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/unoid.mjs",
+      "require": "./dist/unoid.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest --ui --typecheck --coverage.enabled=true",
+    "coverage": "vitest run --coverage &&  vite preview --outDir html"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.5.3",
+    "@types/node": "^20.11.13",
+    "@vitest/coverage-v8": "^1.2.2",
+    "@vitest/ui": "^1.2.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8",
+    "vite-plugin-banner": "^0.7.1",
+    "vite-plugin-dts": "^3.7.2",
+    "vite-plugin-remove-console": "^2.2.0",
+    "vitest": "^1.2.2",
+    "vite-plugin-node-polyfills": "^0.19.0",
+    "@types/jest": "^29.5.12"
+  },
+  "dependencies": {},
+  "keywords": [
+    "uuid",
+    "unoid",
+    "id",
+    "unique ids"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michaelnji/unoid/issues"
+  }
+}
