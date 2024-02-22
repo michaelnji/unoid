@@ -9,30 +9,29 @@ import pkg from "./package.json";
 /// <reference types="vitest" />
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
-  test: {
-    reporters: ["html", "default"],
-    coverage: {
-      provider: "v8",
-      reporter: ["text", "json", "html"],
-      reportsDirectory: "./tests-c/unit/coverage",
-    },
-  },
-  plugins: [
-    dts({ 
-      rollupTypes: true ,
-     
-    }),
-    nodePolyfills(),
-    removeConsole(),
-    banner(
-      `/**\n * name: ${pkg.name}\n * version: v${pkg.version}\n * description: ${pkg.description}\n * author: ${pkg.author}\n * homepage: ${pkg.homepage}\n */`,
-    ),
-  ],
-  build: {
-    lib: {
-      entry: resolve(__dirname, "src/index.ts"),
-      name: "unoid",
-      fileName: "unoid",
-    },
-  },
+	test: {
+		reporters: ["html", "default"],
+		coverage: {
+			provider: "v8",
+			reporter: ["text", "json", "html"],
+			reportsDirectory: "./tests-c/unit/coverage",
+		},
+	},
+	plugins: [
+		nodePolyfills(),
+		removeConsole(),
+		banner(
+			`/**\n * name: ${pkg.name}\n * version: v${pkg.version}\n * description: ${pkg.description}\n * author: ${pkg.author}\n * homepage: ${pkg.homepage}\n */`,
+		),
+		dts({
+			rollupTypes: true,
+		}),
+	],
+	build: {
+		lib: {
+			entry: resolve(__dirname, "src/index.ts"),
+			name: "unoid",
+			fileName: "unoid",
+		},
+	},
 });
